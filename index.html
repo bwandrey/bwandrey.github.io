@@ -4,58 +4,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bruno Maba Wandrey</title>
+
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --top-offset: 25vh;
+            --left-padding: 3rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f9f9f6; /* nice eggshell tone */
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f6;
+            color: #111;
+            position: relative;
+            height: 100vh;
+            line-height: 1.6;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
-            text-align: left;
+            position: absolute;
+            top: var(--top-offset);
+            left: var(--left-padding);
             max-width: 600px;
-            padding: 2rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.2rem;
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.5px;
         }
 
-        h2 {
-            font-weight: 400;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+        p.description {
             color: #666;
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 45ch;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4rem;
         }
 
         a {
             display: block;
-            color: #0066cc;
             text-decoration: none;
+            color: #0066cc;
             margin-bottom: 0.5rem;
+            font-size: 1rem;
+            position: relative;
             transition: color 0.2s;
         }
 
         a:hover {
             color: #004a99;
+            text-decoration: underline;
+        }
+
+        /* Add ↗ only to external links */
+        a[target="_blank"]::after {
+            content: ' ↗';
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>Bruno Maba Wandrey</h1>
-    <h2>Software Engineer</h2>
+    <p class="description">
+        I build stuff
+    </p>
 
-    <a href="projects.html">→ Projects</a>
-    <a href="articles.html">→ Articles</a>
-    <a href="https://github.com/your-github-username" target="_blank">→ GitHub</a>
+    <div class="section">
+        <div class="section-title">Projects</div>
+        <a href="projects.html">Personal Work</a>
+        <a href="articles.html">Writing</a>
+        <a href="cv.pdf">Download CV</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Connect</div>
+        <a href="https://github.com/bwandrey" target="_blank">GitHub</a>
+        <a href="mailto:mabawandrey@gmail.com">Email</a>
+    </div>
 </div>
 </body>
 </html>
